@@ -27,9 +27,9 @@ const SignIn = () => {
             <div className="space-y-4 p-6 sm:p-8 md:space-y-6">
               <form
                 className="space-y-4 md:space-y-6"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault(); // デフォルトのフォーム送信を阻止
-                  signIn(); // 独自の処理を実行
+                  await signIn();
                 }}
               >
                 <div>
