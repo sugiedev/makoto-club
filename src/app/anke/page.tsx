@@ -40,6 +40,15 @@ const Anke = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mt-1 rounded rounded-t-lg border border-gray-300 bg-white p-2 shadow-xl">
+          項目１
+        </div>
+        <div className="mt-1 rounded rounded-t-lg border border-gray-300 bg-white p-2 shadow-xl">
+          項目２
+        </div>
+        <div className="mt-1 rounded rounded-t-lg border border-gray-300 bg-white p-2 shadow-xl">
+          項目3...
+        </div>
+        {/* <div className="mt-1 rounded rounded-t-lg border border-gray-300 bg-white p-2 shadow-xl">
           <p className="mb-2 px-4 py-2 text-xl font-medium text-gray-900">
             情報区分
           </p>
@@ -89,7 +98,7 @@ const Anke = () => {
               />
             </div>
           </label>
-        </div>
+        </div> */}
 
         <div className="mt-1 rounded rounded-t-lg border border-gray-300 bg-white p-2 shadow-xl">
           <button

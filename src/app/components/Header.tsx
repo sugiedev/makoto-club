@@ -52,8 +52,7 @@ export const Header = (props: Props) => {
           </ul>
         </nav>
         <div className="flex h-full items-center">
-          {/* <FavCount /> */}
-          {user ? (
+          {/* {user ? (
             <button
               type="button"
               className=" flex items-center rounded-lg border border-gray-200 bg-white px-1 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
@@ -97,7 +96,7 @@ export const Header = (props: Props) => {
               </svg>
               ログイン
             </button>
-          )}
+          )} */}
           <div className="mx-2 flex h-full items-center">
             <button className="z-50 space-y-2" onClick={changeOpen}>
               <span
