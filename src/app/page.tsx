@@ -4,8 +4,10 @@ import { useAuth } from "~/provider/AuthProvider";
 import { SearchArea } from "./components/SearchArea";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div>
       <div className="flex flex-col items-center justify-center">
@@ -36,11 +38,17 @@ export default function Home() {
           />
         </svg>
 
-        <Link href="/anke">
+        <button
+          onClick={() =>
+            router.push(
+              "https://docs.google.com/forms/d/1fVL7hqPuXDho5yWqjvtwR0xkBdas6_V3oCUilSYFrYA",
+            )
+          }
+        >
           <p className="mb-1 pt-3 font-bold underline">
             匿名店舗アンケートの記入であまぺい最大1000円分をプレゼント！
           </p>
-        </Link>
+        </button>
       </div>
       <div className="flex flex-col items-center justify-center">
         <p className="pt-5 text-xl font-bold">👼新着匿名店舗アンケート👿</p>
