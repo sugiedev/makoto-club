@@ -41,7 +41,7 @@ export default function Home() {
         <button
           onClick={() =>
             router.push(
-              "https://docs.google.com/forms/d/1fVL7hqPuXDho5yWqjvtwR0xkBdas6_V3oCUilSYFrYA",
+              "https://docs.google.com/forms/d/e/1FAIpQLSdBpsJP8jM5bQ0ONSb0vUgVNWW0rg_uXJvfHTPlIyPZv2dOBw/viewform?usp=sharing",
             )
           }
         >
