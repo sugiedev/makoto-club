@@ -43,14 +43,15 @@ export const LineRating = ({
 };
 
 const RatingItem = ({ label, rating }: { label: string; rating: number }) => {
-  const percentRating = `w-[${Math.ceil((rating / 5) * 100)}%]`;
   return (
     <dl>
       {/* {percentRating} */}
       <dt className="text-sm font-medium text-gray-500">{label}</dt>
       <dd className="mb-3 flex items-center">
         <div className="me-2 h-2.5 w-full rounded bg-gray-200 ">
-          <div className={`h-2.5 ${percentRating} rounded bg-blue-600`}></div>
+          <div
+            className={`h-2.5 w-[${Math.ceil((rating / 5) * 100)}%] rounded bg-blue-600`}
+          ></div>
         </div>
         <span className="text-sm font-medium text-gray-500 ">{rating}</span>
       </dd>
