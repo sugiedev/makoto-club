@@ -32,15 +32,6 @@ type Inputs = {
   totalRating: number;
 };
 
-export function calculateAverage(numbers: number[]) {
-  if (numbers.length === 0) {
-    return 0;
-  }
-
-  const sum = numbers.reduce((acc, num) => acc + num, 0);
-  return sum / numbers.length;
-}
-
 // function convertToDate(dateString: string): Date {
 //   const [datePart, timePart] = dateString.split(" ");
 //   if (!(datePart && timePart)) {
@@ -81,6 +72,15 @@ export default function Page() {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+
+  function calculateAverage(numbers: number[]) {
+    if (numbers.length === 0) {
+      return 0;
+    }
+
+    const sum = numbers.reduce((acc, num) => acc + num, 0);
+    return sum / numbers.length;
+  }
 
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
     try {
