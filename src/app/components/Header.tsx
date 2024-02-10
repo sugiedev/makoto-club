@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { useToggle } from "react-use";
 import { Logo } from "./Logo";
-import { useAuth } from "~/provider/AuthProvider";
-import { signOut } from "firebase/auth";
-import { auth } from "~/firebase/client";
-import { useRouter } from "next/navigation";
+// import { useAuth } from "~/provider/AuthProvider";
+// import { signOut } from "firebase/auth";
+// import { auth } from "~/firebase/client";
+// import { useRouter } from "next/navigation";
 
 type Props = {
   menuList: {
@@ -16,9 +16,9 @@ type Props = {
 };
 
 export const Header = (props: Props) => {
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const [isOpen, changeOpen] = useToggle(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <header className="flex w-full max-w-md flex-col bg-green-400 px-5 py-3 text-center">

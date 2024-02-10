@@ -1,12 +1,22 @@
 "use client";
 
-import { useAuth } from "~/provider/AuthProvider";
 import { SearchArea } from "./components/SearchArea";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { type Anke, ShopDataContext } from "~/provider/ShopProvider";
 
 export default function Home() {
+  const { shopData } = useContext(ShopDataContext);
+
+  const newestAnkes = shopData
+    .flatMap((shop) => shop.anke) // すべてのアンケートを一つの配列にフラット化
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    ) // "createdAt"でソート
+    .slice(0, 5); // 上位5つを取得
+
   const router = useRouter();
   return (
     <div>
@@ -54,58 +64,25 @@ export default function Home() {
         <p className="pt-5 text-xl font-bold">👼新着匿名店舗アンケート👿</p>
       </div>
       <div className="flex space-x-4 overflow-x-auto p-4">
-        <div className="w-64 flex-none rounded-lg bg-yellow-100 p-4">
-          <p>👼優良店舗情報👼</p>
-          <p>店舗:富山🚗バイキング</p>
-          <p>時期:2023年12/24-12/31</p>
-          <p>稼ぎ:オーラス8日間　アベ9</p>
-          <p>年齢：25</p>
-          <p>スペック：スペ80</p>
-          <p> 【内容】</p>
-          <p>
-            スタッフさんも優しくて、寮も普通のレオパレス。
-            本指名呼べれば稼げます。 稼働がいいです。
-          </p>
-        </div>
-        <div className="w-64 flex-none rounded-lg bg-yellow-100 p-4">
-          <p>👼優良店舗情報👼</p>
-          <p>店舗:富山🚗バイキング</p>
-          <p>時期:2023年12/24-12/31</p>
-          <p>稼ぎ:オーラス8日間　アベ9</p>
-          <p>年齢：25</p>
-          <p>スペック：スペ80</p>
-          <p> 【内容】</p>
-          <p>
-            スタッフさんも優しくて、寮も普通のレオパレス。
-            本指名呼べれば稼げます。 稼働がいいです。
-          </p>
-        </div>
-        <div className="w-64 flex-none rounded-lg bg-yellow-100 p-4">
-          <p>👼優良店舗情報👼</p>
-          <p>店舗:富山🚗バイキング</p>
-          <p>時期:2023年12/24-12/31</p>
-          <p>稼ぎ:オーラス8日間　アベ9</p>
-          <p>年齢：25</p>
-          <p>スペック：スペ80</p>
-          <p> 【内容】</p>
-          <p>
-            スタッフさんも優しくて、寮も普通のレオパレス。
-            本指名呼べれば稼げます。 稼働がいいです。
-          </p>
-        </div>
-        <div className="w-64 flex-none rounded-lg bg-yellow-100 p-4">
-          <p>👼優良店舗情報👼</p>
-          <p>店舗:富山🚗バイキング</p>
-          <p>時期:2023年12/24-12/31</p>
-          <p>稼ぎ:オーラス8日間　アベ9</p>
-          <p>年齢：25</p>
-          <p>スペック：スペ80</p>
-          <p> 【内容】</p>
-          <p>
-            スタッフさんも優しくて、寮も普通のレオパレス。
-            本指名呼べれば稼げます。 稼働がいいです。
-          </p>
-        </div>
+        {newestAnkes.map((v: Anke) => (
+          <div
+            key={v.ankeId}
+            className="w-64 flex-none cursor-pointer rounded-lg bg-yellow-100 p-4"
+            onClick={() => router.push(`/shop/${v.shopId}`)}
+          >
+            <p className="text-xl">👼匿名アンケート👿</p>
+            <p>評価:{v.totalRating}</p>
+            <hr />
+            <p>店舗:{v.shopName}</p>
+            <p>{v.prefecture}</p>
+            <p>業種:{v.serviceType}</p>
+
+            <p>時期:{v.workingDate}</p>
+            <p>稼ぎ:{v.average}</p>
+            <p>年齢：{v.workingAge}</p>
+            <p>スペック：{v.workingSpec}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

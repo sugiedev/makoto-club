@@ -5,7 +5,7 @@ import { auth } from "~/firebase/client";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
-  sendSignInLinkToEmail,
+  // sendSignInLinkToEmail,
 } from "firebase/auth";
 
 const SignUp = () => {
