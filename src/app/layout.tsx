@@ -9,8 +9,8 @@ const menu: { label: string; href: string }[] = [
     href: "/",
   },
   {
-    label: "よくあるご質問",
-    href: "/faq",
+    label: "アンケートを書く",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSdBpsJP8jM5bQ0ONSb0vUgVNWW0rg_uXJvfHTPlIyPZv2dOBw/viewform?usp=sharing",
   },
 ];
 
