@@ -96,7 +96,11 @@ export default function Home() {
       </div>
       <div>
         {shopData.map((v) => (
-          <div className="p-1" key={v.id}>
+          <div
+            className="cursor-pointer p-1"
+            key={v.id}
+            onClick={() => router.push(`/shop/${v.id}`)}
+          >
             <a
               href="#"
               className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 md:max-w-xl md:flex-row "
